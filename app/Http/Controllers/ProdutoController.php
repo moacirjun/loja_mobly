@@ -51,7 +51,12 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
-        //
+        $semelhantes = $this->produtos->recomendados($produto);
+
+        return view('produto/show', [
+            'produto' => $produto,
+            'semelhantes' => $semelhantes
+        ]);
     }
 
     /**

@@ -18,12 +18,6 @@ class CategoriaController extends Controller
     public function index()
     {
         $categorias = $this->categorias->getAll(16);
-
-//        echo "<pre>";
-//        foreach ($categorias as $categoria) {
-//            var_dump($categoria->produtos);
-//        }
-
         return view('categoria/catalogo', ['categorias' => $categorias]);
     }
 
@@ -56,7 +50,7 @@ class CategoriaController extends Controller
      */
     public function show(Categoria $categoria)
     {
-        //
+        return view('categoria/show', ["categoria" => $categoria]);
     }
 
     /**

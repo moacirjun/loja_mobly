@@ -12,4 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/produtos', 'ProdutoController@listar');
+
+Route::resource('produtos', 'ProdutoController');
+
+Route::resource('categorias', 'CategoriaController');
