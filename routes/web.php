@@ -16,3 +16,5 @@ Route::get('/', 'HomeController@index');
 Route::resource('produtos', 'ProdutoController');
 
 Route::resource('categorias', 'CategoriaController');
+
+Route::get('pesquisar/{param?}', 'PesquisaController@index')->where('param', '[\wA-z\wÀ-ú]+');

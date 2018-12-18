@@ -15,7 +15,7 @@
     <header></header>
 
     <div id="app">
-        @yield('content');
+        @yield('content')
     </div>
 
     <footer></footer>
