@@ -22,4 +22,9 @@ class Produto extends Model
 
         return $categorias_id;
     }
+
+    public function getUrlAddCarrinho()
+    {
+        return route('carrinho.add', ['id' => $this->id]);
+    }
 }

@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ProdutoRepository;
 use Illuminate\Http\Request;
-use App\Produto;
 
 class HomeController extends Controller
 {
-    public function index() {
-        $produtos = Produto::paginate(16);
+    private $produtos;
 
+    public function __construct()
+    {
+        $this->produtos = new ProdutoRepository();
+    }
+
+    public function index()
+    {
+        $produtos = $this->produtos->getAll();
         return view('home', ['produtos' => $produtos]);
     }
 }

@@ -10,9 +10,9 @@ class ProdutoController extends Controller
 {
     private $produtos;
 
-    public function __construct()
+    public function __construct(ProdutoRepository $repository)
     {
-        $this->produtos = new ProdutoRepository();
+        $this->produtos = $repository;
     }
 
     public function index()
