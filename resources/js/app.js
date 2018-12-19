@@ -25,6 +25,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)));
 
 import ListaProduto from "./components/shared/produtos/ListaProduto";
+import TabelaCarrinho from "./components/carrinho/tabela";
 import Paginacao from "./components/shared/paginacao/Paginacao";
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,6 +37,7 @@ const app = new Vue({
     el: '#app',
     components: {
         ListaProduto,
-        Paginacao
+        Paginacao,
+        TabelaCarrinho
     }
 });

@@ -4,24 +4,27 @@
         <div class="card-body">
             <h5 class="card-title">{{item.nome}}</h5>
             <p class="card-text">{{item.descricao}}</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
+            <a :href="addToCartUrl" class="btn btn-primary">Comprar</a>
         </div>
     </div>
 </template>
 
 <script>
+
     export default {
         name: "Produto",
         props: ['produto'],
 
         data() {
             return {
-                item : {}
+                item : {},
+                addToCartUrl: ""
             }
         },
 
         mounted() {
             this.item = this.produto;
+            this.addToCartUrl = route('carrinho.add', this.item.id);
         }
     }
 </script>

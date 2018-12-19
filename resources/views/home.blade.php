@@ -3,7 +3,7 @@
 @section('title', 'HOME')
 
 @section('content')
-    <lista-produto produtos="{{ $produtos->toJson() }}"></lista-produto>
+    <lista-produto produtos="{{ json_encode($produtos) }}"></lista-produto>
     <paginacao>
         {{ $produtos->links() }}
     </paginacao>
