@@ -18,3 +18,11 @@ Route::resource('produtos', 'ProdutoController');
 Route::resource('categorias', 'CategoriaController');
 
 Route::get('pesquisar/{param?}', 'PesquisaController@index')->where('param', '[\wA-z\wÀ-ú]+');
+
+Route::get('carrinho', 'CarrinhoController@index')->name('carrinho');
+Route::get('carrinho/add-produto/{id}', 'CarrinhoController@adicionarProduto')->name('carrinho.add');
+Route::get('carrinho/remover-produto/{id}', 'CarrinhoController@removerProduto')->name('carrinho.remove');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
