@@ -10,9 +10,9 @@ class CategoriaController extends Controller
 {
     private $categorias;
 
-    public function __construct()
+    public function __construct(CategoriaRepository $categoriaRepository)
     {
-        $this->categorias = new CategoriaRepository();
+        $this->categorias = $categoriaRepository;
     }
 
     public function index()

@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Carrinho;
-use App\CarrinhoItem;
-use App\Produto;
 use App\Services\CarrinhoRepository;
 use App\Services\PedidoRepository;
 use App\Services\ProdutoRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
 
 class CarrinhoController extends Controller
 {
@@ -18,13 +15,15 @@ class CarrinhoController extends Controller
     private $cartRepository;
     private $produtoRepo;
 
-    public function __construct()
+    public function __construct(
+        PedidoRepository $pedidoRepository,
+        CarrinhoRepository $carrinhoRepository,
+        ProdutoRepository $produtoRepository
+    )
     {
-        //$this->middleware('auth');
-
-        $this->pedidos = new PedidoRepository();
-        $this->cartRepository = new CarrinhoRepository();
-        $this->produtoRepo = new ProdutoRepository();
+        $this->pedidos = $pedidoRepository;
+        $this->cartRepository = $carrinhoRepository;
+        $this->produtoRepo = $produtoRepository;
     }
 
     public function index()

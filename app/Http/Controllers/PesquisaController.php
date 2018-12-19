@@ -9,9 +9,9 @@ class PesquisaController extends Controller
 {
     private $produtos;
 
-    public function __construct()
+    public function __construct(ProdutoRepository $produtos)
     {
-        $this->produtos = new ProdutoRepository();
+        $this->produtos = $produtos;
     }
 
     public function index(Request $request, $param = "")
