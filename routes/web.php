@@ -23,6 +23,8 @@ Route::get('carrinho', 'CarrinhoController@index')->name('carrinho');
 Route::get('carrinho/add-produto/{id}', 'CarrinhoController@adicionarProduto')->name('carrinho.add');
 Route::get('carrinho/remover-produto/{id}', 'CarrinhoController@removerProduto')->name('carrinho.remove');
 
+Route::get('checkout', 'CheckoutController@index')->name('checkout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
