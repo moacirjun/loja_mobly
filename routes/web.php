@@ -33,3 +33,8 @@ Route::get('pedido/{id}', 'PedidoController@show')->name('pedido.show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('admin')->group(function () {
+    Route::resource('produtos', 'Admin\ProdutosController');
+    Route::resource('categorias', 'Admin\CategoriaController');
+});
