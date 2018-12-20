@@ -1,69 +1,48 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Loja Mobly!
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Uma loja fictícia com as funcionalidades básicas de um E-commerce real.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+# Funcionalidades
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Listagem de produtos
+- Listagem de categorias
+- Pesquisa de produtos
+- Carrinho de compra
+- Carrinho para visitantes
+- Checkouts separados entre visitantes e clientes logados
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+# Tecnologias usadas
 
-## Learning Laravel
+- Framework Laravel v5.7
+- Vue.js
+- Bootstrap
+- [Artesãos Warehouse V2](https://github.com/artesaos/warehouse) - Um repositório do Github que me auxiliou na implementação do Repository Pattern no projeto 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+# Instalação
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+A instalação do sistema é simples. Vamos aos passos:
 
-## Laravel Sponsors
+- Clone este repositório em algum lugar na sua máquina
+> git clone https://moacirjun@bitbucket.org/moacirjun/loja_mobly.git loja_mobly
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+- Entre na pasta criada e rode o seguinte código no seu console de preferência para instalar as dependências do compser
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
+> composer install
+> 
+- Agora renomeie o arquivo '.env.example' para '.env' e defina o valor das variáveis para o seu ambiente de desenvolvimento. A atenção maior deve ser nos campos que definem a conexão com o banco de dados. No meu caso ficou assim:
 
-## Contributing
+![enter image description here](https://lh3.googleusercontent.com/r_MW_rLW_8r-MRCei2uN2hEb8PSLhv7AuZmeG6rHO3fp300mJ4jeAQFQRm9aIEiyUStwbAnM7xCWCg "Exemplo .env para desenvolvimento")
+- O módulo de gerenciamento da loja ainda não foi implementando. Com isso não vai ter como instalar produtos, categorias e etc. Entretanto deixei uma base de dados pronta para você testar as funcionalidades da loja. para instalar você precisa rodar o comando abaixo.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+>php artisan sample_data:install
+>
+- Agora instale as dependências da parte do fornt-end. Para isso você precisa ter o [Node.js](https://nodejs.org/en/) instalado. Rode o seguinte comando
+>npm install
+- E para gerar os assets front-end rode
+>npm run prod
+- E caso queira alterar elementos Vue e gerar o bundle.js automaticamente rode
+>npm num watch
+- Enfim estamos prontos. Agora basta rodar o comando do Laravel para subir um servidor na pasta do projeto
+>php artisan serve
+- Agora é só acessar a url que o prompt retornou do comando acima e curtir a loja.
