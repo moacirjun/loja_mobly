@@ -49,8 +49,9 @@ class ProdutoController extends Controller
      * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function show(Produto $produto)
+    public function show($produto_id)
     {
+        $produto = $this->produtos->findByID($produto_id);
         $semelhantes = $this->produtos->recomendados($produto);
 
         return view('produto/show', [

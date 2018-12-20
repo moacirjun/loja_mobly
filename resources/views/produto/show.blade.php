@@ -9,7 +9,7 @@
         <div class="media">
             <img class="mr-3 w-25" src="{{ $produto->imagem_url }}" alt="Generic placeholder image">
             <div class="media-body">
-                <h5 class="mt-0">Media {{ $produto->descricao }}</h5>
+                <h5 class="mt-0">{{ $produto->descricao }}</h5>
             </div>
         </div>
 

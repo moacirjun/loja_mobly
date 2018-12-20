@@ -30817,12 +30817,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             item: {},
-            addToCartUrl: ""
+            addToCartUrl: "",
+            itemUrl: ""
         };
     },
     mounted: function mounted() {
         this.item = this.produto;
         this.addToCartUrl = route('carrinho.add', this.item.id);
+        this.itemUrl = route('produtos.mostrar', this.item.id);
     }
 });
 
@@ -30841,7 +30843,11 @@ var render = function() {
     }),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
-      _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.item.nome))]),
+      _c("h5", { staticClass: "card-title" }, [
+        _c("a", { attrs: { href: _vm.itemUrl } }, [
+          _vm._v(_vm._s(_vm.item.nome))
+        ])
+      ]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _vm._v(_vm._s(_vm.item.descricao))

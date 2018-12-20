@@ -17,6 +17,6 @@ class PesquisaController extends Controller
     public function index(Request $request, $param = "")
     {
         $produtos = $this->produtos->pesquisar($param);
-        return view('pesquisa/index', ['produtos' => $produtos]);
+        return view('pesquisa/index', ['produtos' => $produtos, 'param' => $param]);
     }
 }

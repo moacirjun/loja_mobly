@@ -18,7 +18,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Loja Mobly
@@ -30,11 +30,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">Loja</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('carrinho') }}">Carrinho</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categorias') }}">Categorias</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                    <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search" id="input-search">
+                            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" onclick="event.preventDefault();
+                            window.location.assign('{{ route('pesquisa') }}/' + document.getElementById('input-search').value);">Search</button>
+                        </form>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -56,6 +70,10 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('minha-conta') }}">
+                                        {{ __('My Account') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

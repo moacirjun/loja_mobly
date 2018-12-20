@@ -13,11 +13,11 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::resource('produtos', 'ProdutoController');
+Route::get('produtos/{id}', 'ProdutoController@show')->name('produtos.mostrar');
 
-Route::resource('categorias', 'CategoriaController');
+Route::get('categorias', 'CategoriaController@index')->name('categorias');
 
-Route::get('pesquisar/{param?}', 'PesquisaController@index')->where('param', '[\wA-z\wÀ-ú]+');
+Route::get('pesquisar/{param?}', 'PesquisaController@index')->where('param', '[\wA-z\wÀ-ú]+')->name('pesquisa');
 
 Route::get('carrinho', 'CarrinhoController@index')->name('carrinho');
 Route::get('carrinho/add-produto/{id}', 'CarrinhoController@adicionarProduto')->name('carrinho.add');
