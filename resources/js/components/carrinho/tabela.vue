@@ -19,7 +19,7 @@
         <tfoot class="thead-dark">
             <tr>
                 <td colspan="3" class="font-weight-bold text-uppercase">Total: {{total}}</td>
-                <td width="100px"><span class="btn-checkout btn btn-dark">Comprar</span></td>
+                <td width="100px"><a :href="route('checkout')" class="btn-checkout btn btn-dark">Comprar</a></td>
             </tr>
         </tfoot>
     </table>
@@ -38,6 +38,9 @@
         methods: {
           getUrl: (id) => {
             return route('carrinho.remove', id);
+          },
+          route: (name, data = []) => {
+              return route(name, data);
           }
         },
         mounted() {

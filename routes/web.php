@@ -24,6 +24,11 @@ Route::get('carrinho/add-produto/{id}', 'CarrinhoController@adicionarProduto')->
 Route::get('carrinho/remover-produto/{id}', 'CarrinhoController@removerProduto')->name('carrinho.remove');
 
 Route::get('checkout', 'CheckoutController@index')->name('checkout');
+Route::post('checkout', 'CheckoutController@checkout')->name('checkout.make');
+
+Route::get('minha-conta', 'UserController@index')->name('minha-conta');
+
+Route::get('pedido/{id}', 'PedidoController@show')->name('pedido.show');
 
 Auth::routes();
 

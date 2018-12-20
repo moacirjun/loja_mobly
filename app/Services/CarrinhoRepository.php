@@ -9,6 +9,7 @@
 namespace App\Services;
 
 
+use App\Carrinho;
 use App\CarrinhoItem;
 use App\Produto;
 use Artesaos\Warehouse\CrudRepository;
@@ -70,7 +71,21 @@ class CarrinhoRepository extends CrudRepository implements CreateRecordsContract
 
     public function getByToken($token)
     {
-        return $this->newQuery()->where('token', '=', $token)->firstOrFail();
+        return $this->newQuery()->where('token', '=', $token)->first();
     }
 
+    public function getItems($token)
+    {
+        return $this->newQuery()->where('token', '=', $token)->first()->itens_sem_somar;
+    }
+
+    public function limparCarrinho($token)
+    {
+        $carrinho = $this->getByToken($token);
+        $carrinho->itens()->delete();
+
+        $this->newQuery()->delete($carrinho->id);
+
+        Carrinho::matarCookie();
+    }
 }

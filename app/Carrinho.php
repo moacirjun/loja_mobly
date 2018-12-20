@@ -20,6 +20,11 @@ class Carrinho extends Model
             ->orderBy('produto_id', 'desc');
     }
 
+    public function itens_sem_somar()
+    {
+        return $this->hasMany('App\CarrinhoItem');
+    }
+
     public function formatToJson()
     {
         $CarrinhoItens = $this->itens()->get();
@@ -62,5 +67,10 @@ class Carrinho extends Model
     public static function makeCookieByToken($token) : CookieSymfony
     {
         return Cookie::make('CART', $token, 21600, '/'); //15 dias
+    }
+
+    public static function matarCookie()
+    {
+        return setcookie('CART', '', 0, '/');
     }
 }
