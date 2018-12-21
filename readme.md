@@ -49,7 +49,7 @@ A instalação do sistema é simples. Vamos aos passos:
 >npm run prod
 
 - E caso queira alterar elementos Vue e gerar o bundle.js automaticamente rode
->npm num watch
+>npm run watch
 
 - Enfim estamos prontos. Agora basta rodar o comando do Laravel para subir um servidor na pasta do projeto
 >php artisan serve
