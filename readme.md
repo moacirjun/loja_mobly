@@ -34,6 +34,10 @@ A instalação do sistema é simples. Vamos aos passos:
 
 ![enter image description here](https://lh3.googleusercontent.com/r_MW_rLW_8r-MRCei2uN2hEb8PSLhv7AuZmeG6rHO3fp300mJ4jeAQFQRm9aIEiyUStwbAnM7xCWCg "Exemplo .env para desenvolvimento")
 
+- Agora crie um banco de dados com o mesmo nome que você escolheu no arquivo .env
+
+- Feito isso rode o comando abaixo para gerar toda a estrutura de tabelas da aplicação
+>php artisan migrate
 
 - O módulo de gerenciamento da loja ainda não foi implementando. Com isso não vai ter como instalar produtos, categorias e etc. Entretanto deixei uma base de dados pronta para você testar as funcionalidades da loja. para instalar você precisa rodar o comando abaixo.
 >php artisan sample_data:install
